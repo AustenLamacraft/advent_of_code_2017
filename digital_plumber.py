@@ -10,7 +10,7 @@ with open("digital_plumber.txt") as file:
 def enlarge_neighbourhood(neighbours):
     new_neighbours = set({})
     for neighbour in neighbours:
-        new_neighbours = new_neighbours.union(connections[neighbour])
+        new_neighbours.update(connections[neighbour])
 
     return neighbours.union(new_neighbours)
 

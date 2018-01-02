@@ -61,9 +61,11 @@ class Circ(list):
 #     lengths = [int(length) for length in file.readline()[:-1].split(",")]
 
 with open("knot_hash.txt") as file:
-    my_lengths = [ord(char) for char in list(file.readline()[:-1])]
+    my_lengths = file.readline()[:-1]
 
-def knot_hash(lengths):
+def knot_hash(input):
+
+    lengths = [ord(char) for char in list(input)]
 
     lengths += [17, 31, 73, 47, 23]
 
