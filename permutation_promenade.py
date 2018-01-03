@@ -1,4 +1,5 @@
 import numpy as np
+from sympy.combinatorics import Permutation
 
 with open("permutation_promenade.txt") as file:
     moves = file.read()[:-1].split(",")
@@ -32,9 +33,30 @@ for move in moves:
         a, b = move[1:].split("/")
         programs.partner(a, b)
 
-prog_string = ""
+def stringify(prog_list):
 
-for prog in programs:
-    prog_string += prog
+    prog_string = ""
 
-print(prog_string)
+    for prog in prog_list:
+        prog_string += prog
+
+    return prog_string
+
+print(stringify(programs))
+
+# The second part is sufficiently sneaky that it's worth paying homage to.
+# Point is that the we DO NOT simply take the billionth power of the permutation
+# from the previous part. The "partner" move swaps named programs NO MATTER WHERE
+# they are! Thus doing the whole sequence a billion (or any even number) of times
+# renders all the partner moves void. Comment them out and THEN take the billionth
+# power!
+
+# Here's the permutation corresponding to the output pkgnhomelfdibjac from the first part
+abcd = "abcdefghijklmnop"
+one_dance = [abcd.index(char) for char in programs]
+
+perm = Permutation(one_dance)
+
+final_perm = perm**1000000000
+
+print(stringify([abcd[val] for val in final_perm]))
