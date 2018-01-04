@@ -5,7 +5,7 @@ n, ne, se, s, sw, nw = np.array([0,1]), np.array([1,0]), np.array([1,-1]), np.ar
 
 directions = {"n": n, "ne": ne, "se": se, "s": s, "sw": sw, "nw": nw}
 
-with open("hex_ed.txt") as file:
+with open("inputs/hex_ed.txt") as file:
     my_path = file.read()[:-1].split(",")
 
 def hex_distance(path):

@@ -1,4 +1,4 @@
-with open("stream_processing.txt") as file:
+with open("inputs/stream_processing.txt") as file:
     my_stream = file.read()
 
 def process(stream):

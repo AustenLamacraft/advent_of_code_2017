@@ -6,7 +6,7 @@ nodes = {}
 weights = {}
 weights_above = {}
 
-with open("recursive_circus.txt") as file:
+with open("inputs/recursive_circus.txt") as file:
     for line in file:
         line_parts = line.split("->")
         parent = re.search(r"[a-z]+", line_parts[0]).group()

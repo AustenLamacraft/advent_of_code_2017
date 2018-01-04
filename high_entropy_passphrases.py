@@ -1,7 +1,7 @@
 total = 0
 valid_passphrases = 0
 
-with open("passphrases.txt") as file:
+with open("inputs/passphrases.txt") as file:
     for line in file:
         line_list = line.split()
         if len(set(line_list)) == len(line_list):

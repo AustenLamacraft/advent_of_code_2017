@@ -1,6 +1,6 @@
 firewall = {}
 
-with open("packet_scanners.txt") as file:
+with open("inputs/packet_scanners.txt") as file:
     for line in file:
         line = line.rstrip('\n')
         depth, scan_range = line.split(":")

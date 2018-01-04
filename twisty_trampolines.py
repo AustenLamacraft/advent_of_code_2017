@@ -1,4 +1,4 @@
-with open("twisty_trampolines.txt") as file:
+with open("inputs/twisty_trampolines.txt") as file:
     input_strings = file.read().split("\n")
     input = [int(line) for line in input_strings[:-1]]
 

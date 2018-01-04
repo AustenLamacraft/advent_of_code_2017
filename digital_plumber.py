@@ -1,6 +1,6 @@
 connections = []
 
-with open("digital_plumber.txt") as file:
+with open("inputs/digital_plumber.txt") as file:
     for line in file:
         node, neighbours = line[:-1].split("<->")
         node = node.strip()

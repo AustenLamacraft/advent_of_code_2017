@@ -1,6 +1,6 @@
 import numpy as np
 
-with open("memory_reallocation.txt") as file:
+with open("inputs/memory_reallocation.txt") as file:
     input_strings = file.read().split("\t")
     block_counts = [int(count) for count in input_strings]
 

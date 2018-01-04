@@ -3,7 +3,7 @@ import re
 instructions = []
 conditions = []
 
-with open("you_like_registers.txt") as file:
+with open("inputs/you_like_registers.txt") as file:
     for line in file:
         instruction, condition = line.split("if")
         instructions.append(instruction.split())

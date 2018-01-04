@@ -1,7 +1,7 @@
 import numpy as np
 from sympy.combinatorics import Permutation
 
-with open("permutation_promenade.txt") as file:
+with open("inputs/permutation_promenade.txt") as file:
     moves = file.read()[:-1].split(",")
 
 class DanceMoves(list):
