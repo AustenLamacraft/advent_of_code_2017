@@ -51,6 +51,8 @@ print(stringify(programs))
 # renders all the partner moves void. Comment them out and THEN take the billionth
 # power!
 
+# I did the permutations by hand before and it was slow. SymPy does it in a jiffy.
+
 # Here's the permutation corresponding to the output pkgnhomelfdibjac from the first part
 abcd = "abcdefghijklmnop"
 one_dance = [abcd.index(char) for char in programs]
