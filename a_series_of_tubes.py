@@ -7,13 +7,13 @@ with open("inputs/a_series_of_tubes.txt") as file:
 
 tubes = np.array(tubes)
 
-# Continue going in the same direction until we hit a +, then determine new
-# direction.
-
 row, col = 0, list(tubes[0,:]).index("|")
 dir = "d"
 
 def find_plus(row, col, dir):
+    """Continue going in the same direction until we hit a + or space, then
+    determine new direction.
+    """
     try:
         if dir == "d":
             segment = list(tubes[row+1:,col])
