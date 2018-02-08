@@ -50,7 +50,7 @@ while j < len(instructions):
     else:
         j += 1
 
-    # print(f"{registers['h']} in register h")
+    print(f"{registers['e']} in register e")
     # print(f"{registers['g']} in register g")
 
 
