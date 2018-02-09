@@ -12,12 +12,14 @@ for component in components:
 port_count = Counter(entries)
 
 endports = {(port, port) for port in port_count if port_count[port] == 1}
-
 allports = {(port, port) for port in entries}
 
-scores = []
+# Can look for paths starting at any port, or only those at the end of branches
+# of the graph. I think the longest path need not be at the end of a branch, but
+# it seems to work in my case
 
-def find_path(endport, remaining_components, path) :
+def find_path(endport, remaining_components) :
+    scores = []
     if endport[0] != 0:
         for component in remaining_components:
             if endport[0] in component:
@@ -25,9 +27,17 @@ def find_path(endport, remaining_components, path) :
                 score = endport[1] + 2*next_port
                 new_components = remaining_components[:]
                 new_components.remove(component)
-                find_path((next_port,score),new_components, path + [next_port])
+                scores += find_path((next_port,score),new_components)
+
     else:
+        final_score = endport[1]
         scores.append(endport[1])
 
+    return scores
+
+overall_scores = []
+
 for port in endports:
-    find_path(port, components, [port[0]])
+    overall_scores += find_path(port, components)
+
+print(f"Highest score {max(overall_scores)}")
