@@ -11,8 +11,10 @@ for component in components:
 
 port_count = Counter(entries)
 
-endports = {(port, port) for port in port_count if port_count[port] == 1}
-allports = {(port, port) for port in entries}
+endports = {(port, port, 0) for port in port_count if port_count[port] == 1}
+allports = {(port, port, 0) for port in entries}
+
+# The tuple is (start, score, length)
 
 # Can look for paths starting at any port, or only those at the end of branches
 # of the graph. I think the longest path need not be at the end of a branch, but
@@ -27,11 +29,11 @@ def find_path(endport, remaining_components) :
                 score = endport[1] + 2*next_port
                 new_components = remaining_components[:]
                 new_components.remove(component)
-                scores += find_path((next_port,score),new_components)
+                length = endport[2] + 1
+                scores += find_path((next_port,score,length),new_components)
 
     else:
-        final_score = endport[1]
-        scores.append(endport[1])
+        scores.append((endport[1], endport[2]))
 
     return scores
 
@@ -40,4 +42,7 @@ overall_scores = []
 for port in endports:
     overall_scores += find_path(port, components)
 
-print(f"Highest score {max(overall_scores)}")
+overall_scores.sort(key=lambda x: x[1])
+
+print(f"Highest score: {max(overall_scores)}")
+print(f"Longest bridge: {overall_scores[-1]}")
