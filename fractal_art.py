@@ -69,7 +69,6 @@ def apply_rules(grid):
     return make_grid(subgrids)
 
 
-
 grid = np.array([[".","#", "."],[".", ".", "#"],["#","#","#"]])
 
 for j in range(18):
